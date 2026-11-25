@@ -213,9 +213,14 @@ async function buildApp (opts = {}) {
 }
 
 async function main () {
+  // Vercel can start this file directly (its Fastify detection). Give it the preview settings.
+  const preview = require('./preview')
+  const vercel = preview.onVercel()
+  if (vercel) preview.applyVercelEnv()
   let app
   try {
     app = await buildApp()
+    if (vercel) await preview.preparePreview(app)
   } catch (err) {
     if (err instanceof ConfigError) {
       console.error(`\n${err.message}\n`)
@@ -229,7 +234,7 @@ async function main () {
   }
   process.on('SIGINT', shutdown)
   process.on('SIGTERM', shutdown)
-  await app.listen({ port: app.config.port, host: app.config.host })
+  await app.listen({ port: app.config.port, host: vercel && !process.env.HOST ? '0.0.0.0' : app.config.host })
   app.log.info(`One Shelf is running. Payment mode: ${app.config.paymentMode}. Open ${app.config.publicBaseUrl}`)
 }
 
