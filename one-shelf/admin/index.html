@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>One Shelf admin</title>
+  <link rel="stylesheet" href="css/admin.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body class="signed-out">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="topbar" id="topbar" hidden>
+    <a class="brand" href="#/">One Shelf <span class="brand-sub">admin</span></a>
+    <nav class="nav" aria-label="Admin sections">
+      <ul id="nav-list">
+        <li><a href="#/" data-nav="dashboard">Dashboard</a></li>
+        <li><a href="#/orders" data-nav="orders">Orders</a></li>
+        <li><a href="#/products" data-nav="products">Products</a></li>
+        <li><a href="#/roasters" data-nav="roasters">Roasters</a></li>
+        <li><a href="#/zones" data-nav="zones">Delivery zones</a></li>
+        <li><a href="#/subscribers" data-nav="subscribers">Subscribers</a></li>
+        <li><a href="#/activity" data-nav="activity">Activity log</a></li>
+        <li><a href="#/account" data-nav="account">Account</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-user">
+      <span class="who" id="who"></span>
+      <button type="button" class="btn btn-quiet" id="signout-button">Sign out</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <p class="loading">Loading…</p>
+  </main>
+
+  <div class="messages" id="messages">
+    <div id="status-region" role="status" aria-live="polite"></div>
+    <div id="alert-region" role="alert"></div>
+  </div>
+
+  <noscript><p class="noscript">The One Shelf admin needs JavaScript switched on.</p></noscript>
+</body>
+</html>

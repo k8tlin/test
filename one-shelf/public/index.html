@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One Shelf: coffee from London’s independent roasters</title>
+<meta name="description" content="A marketplace for London’s independent coffee roasteries. Enter your postcode to see the nearest roasters first.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/shop.css">
+<script type="module" src="/js/home.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+  <header class="site-header">
+    <nav class="nav glass" aria-label="Main">
+      <a href="#top" class="logo" aria-label="One Shelf home"><svg aria-hidden="true" viewBox="0 0 58 22" preserveAspectRatio="none"><ellipse vector-effect="non-scaling-stroke" cx="29" cy="11" rx="28" ry="10"></ellipse><path vector-effect="non-scaling-stroke" d="M41 6.2C32 1.5 19 5.5 29 11s-3 9.5-12 4.800"></path><path vector-effect="non-scaling-stroke" d="M17 6.2C26 1.5 39 5.5 29 11s3 9.5 12 4.800"></path><path vector-effect="non-scaling-stroke" d="M9 11h8M41 11h8"></path></svg></a>
+      <div class="navlinks">
+        <a href="#market" class="navl" data-sec="beans">Shop</a>
+        <a href="#roasters" class="navl" data-sec="roasters">Roasters</a>
+        <a href="#how" class="navl" data-sec="how">The label</a>
+        <a href="#faq" class="navl" data-sec="faq">FAQ</a>
+      </div>
+      <a href="#top" id="pc-chip" class="pcchip"><span class="px pcchip-code" id="pc-chip-code">LDN</span><span class="pcchip-text" id="pc-chip-text">Set postcode</span></a>
+      <button type="button" id="basket-btn" class="btn btn--primary basket-btn" aria-haspopup="dialog">Basket <span class="basket-count" id="basket-count">0</span></button>
+    </nav>
+  </header>
+  <div id="flash" class="wrap" aria-live="polite"></div>
+  <main id="main">
+    <span id="top" class="anchor"></span>
+    <section id="beans" class="beans">
+      <div class="beans-in">
+        <div class="hero" id="hero">
+          <canvas class="koi" id="koi" role="img" aria-label="Orange goldfish printed in halftone dots swim back and forth across the top of the page. They speed up and veer away from the pointer."></canvas>
+          <div class="hero-copy">
+            <p class="px hero-kicker">LONDON ROASTERS / ONE SHELF</p>
+            <h1 class="hero-title">Drink your <em>postcode.</em></h1>
+            <p class="hero-lede">A marketplace for London’s independent roasteries. Each bag is sold by the roaster who made it, and shows where it was roasted, how far that is from you and what it tastes like.</p>
+            <form id="pc-form" class="pc-form" novalidate>
+              <label for="pc-input" class="hint">Your postcode, to stock the shelf nearest first</label>
+              <div class="pc-box">
+                <input id="pc-input" name="postcode" class="pc-input" placeholder="e.g. E8 4PH" autocomplete="postal-code" autocapitalize="characters" spellcheck="false" inputmode="text" maxlength="10">
+                <button type="submit" class="btn btn--primary gobtn" id="pc-submit">Find my roasters</button>
+              </div>
+              <p class="field-error" id="pc-input-error"></p>
+              <p class="pc-status" id="pc-status" role="status"></p>
+              <button type="button" class="linkbtn small" id="pc-clear" hidden>Clear postcode</button>
+            </form>
+            <dl class="facts" id="facts">
+              <div><dt>independent roasteries</dt><dd id="fact-roasters">…</dd></div>
+              <div><dt>coffees on the shelf</dt><dd id="fact-coffees">…</dd></div>
+              <div><dt id="fact-near-k">is where all of it is roasted</dt><dd id="fact-near-v">London</dd></div>
+            </dl>
+          </div>
+          <div class="hero-space" aria-hidden="true"></div>
+          <button type="button" class="btn btn--quiet motion-btn" id="motion-btn" aria-pressed="false">Pause animation</button>
+        </div>
+
+        <div id="market" class="market">
+          <h2 class="sr-only">The shelf</h2>
+          <aside id="filters" class="filters" aria-label="Filters">
+            <div class="field">
+              <label for="mk-q" class="fk">Search</label>
+              <input id="mk-q" type="search" class="input" placeholder="Coffee, roaster or tasting note" maxlength="60" autocomplete="off" enterkeyhint="search">
+            </div>
+            <button type="button" id="f-toggle" class="btn btn--ghost fbtn" aria-expanded="true" aria-controls="f-groups"><span>Filters</span><span id="f-toggle-sign">Hide</span></button>
+            <div id="f-groups" class="f-groups">
+              <div id="f-lists" class="f-lists"></div>
+              <div class="f-price">
+                <label for="mk-price" class="fk f-price-label"><span>Price up to</span><span id="mk-price-val" class="f-price-val"></span></label>
+                <input id="mk-price" type="range" min="900" max="2400" step="50" value="2400">
+              </div>
+            </div>
+          </aside>
+          <div class="results">
+            <div class="rbar">
+              <div class="rbar-l">
+                <button type="button" id="f-open" class="btn btn--ghost fbtn" aria-expanded="false" aria-controls="filters" hidden><span>Filters</span><span id="f-open-count" class="muted"></span><span aria-hidden="true">+</span></button>
+                <p id="r-count" class="r-count">Loading…</p>
+                <p id="r-scope" class="r-scope" role="status"></p>
+                <button type="button" id="r-clear" class="linkbtn" hidden>Clear filters</button>
+              </div>
+              <div class="rbar-r">
+                <label for="mk-sort" class="hint">Sort</label>
+                <select id="mk-sort" class="select sort-select">
+                  <option value="roast">Roast level</option>
+                  <option value="near">Nearest first</option>
+                  <option value="price_asc">Price, low to high</option>
+                  <option value="price_desc">Price, high to low</option>
+                </select>
+              </div>
+            </div>
+            <ul id="chips" class="chips" aria-label="Active filters" hidden></ul>
+            <div id="grid-wrap" class="grid-wrap" aria-busy="true"><p class="state muted">Loading the shelf…</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marq-wrap" aria-label="Roasters on the shelf">
+      <div class="marq" id="marq"></div>
+    </section>
+
+    <section id="how" class="wrap sec rv">
+      <div class="lhead">
+        <span class="kick"><span class="px">02</span>The label</span>
+        <h2 class="h-display">Read the <em>label</em></h2>
+        <p class="muted lhead-p">Every bag on the shelf answers the same four questions. Try each one.</p>
+      </div>
+      <div class="lrow">
+        <span class="lk">Roast</span>
+        <div class="lt"><h3 class="lh">How was it roasted?</h3><p class="lp" id="demo-line"></p><p class="lp small">The curve is an illustration of the roast level, not a log of a real batch.</p></div>
+        <div class="lviz">
+          <div id="demo-curve"></div>
+          <label for="demo-roast" class="demo-label"><span class="muted">Roast level</span><b id="demo-name"></b></label>
+          <input id="demo-roast" class="demo-range" type="range" min="1" max="5" step="0.1" value="2">
+        </div>
+      </div>
+      <div class="lrow">
+        <span class="lk">Taste</span>
+        <div class="lt"><h3 class="lh">What does it taste like?</h3><p class="lp" id="taste-line">Every coffee is scored on the same six scales.</p>
+          <div role="group" aria-label="Choose a coffee" class="lchips" id="taste-chips"></div>
+        </div>
+        <div class="lviz" id="taste-bars"></div>
+      </div>
+      <div class="lrow">
+        <span class="lk">Distance</span>
+        <div class="lt"><h3 class="lh">How far did it travel?</h3><p class="lp" id="near-line">Enter your postcode at the top and this list turns into distances.</p></div>
+        <ul class="lviz nearlist" id="near-list"></ul>
+      </div>
+      <div class="lrow lrow--last">
+        <span class="lk">Hand-over</span>
+        <div class="lt"><h3 class="lh">How do you get it?</h3><p class="lp" id="way-line"></p></div>
+        <div role="group" aria-label="How to get it" class="lchips lchips--big" id="way-chips">
+          <button type="button" class="lchip" data-way="collect" aria-pressed="false">Collect</button>
+          <button type="button" class="lchip" data-way="delivery" aria-pressed="false">Local delivery</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="steps" class="wrap sec sec--steps rv">
+      <h2 class="kick"><span class="px">03</span>How it works</h2>
+      <div class="steps">
+        <div class="step"><h3>Choose from the shelf</h3><p class="muted">Every bag is listed under the roastery that roasted it.</p></div>
+        <div class="step"><h3>Collect, or have it brought round</h3><p class="muted">Pick it up from the roastery counter or choose local delivery at the basket.</p></div>
+        <div class="step"><h3>Follow your order</h3><p class="muted">Your order page shows when it is being packed, and when it is ready or on its way.</p></div>
+      </div>
+    </section>
+
+    <section id="roasters" class="sec sec--roasters rv">
+      <div class="wrap rhead">
+        <span class="kick"><span class="px">04</span>The roasters</span>
+        <h2 class="h-display"><span id="roaster-count-word">London</span> <em>roasters</em></h2>
+        <p class="muted" id="roaster-intro">All roasting inside London. Choose one to see only their bags on the shelf.</p>
+      </div>
+      <div role="group" aria-label="Choose a roaster" class="rcards" id="rcards" tabindex="-1"></div>
+      <p class="wrap rsel" id="rsel" role="status"></p>
+    </section>
+
+    <section id="faq" class="wrap sec faq rv">
+      <div class="faq-head"><span class="kick"><span class="px">05</span>Questions</span>
+        <h2 class="h-display">Good <em>questions</em></h2>
+      </div>
+      <div class="faq-list">
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q0" aria-expanded="true" aria-controls="faq-a0"><span>How local is local?</span><span class="faq-sign" aria-hidden="true">−</span></button></h3>
+            <p class="faq-a" id="faq-a0" role="region" aria-labelledby="faq-q0">Everything on the shelf is roasted inside Greater London. Enter your postcode and each bag shows roughly how far its roastery is from you. Distances are straight-line miles from the middle of your postcode district, so they are approximate.</p>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1"><span>Who am I buying from?</span><span class="faq-sign" aria-hidden="true">+</span></button></h3>
+            <p class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1" hidden>Each bag is listed with the name of the roastery that roasted it, and you can filter the shelf to a single roaster.</p>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2"><span>Can I collect instead of having it delivered?</span><span class="faq-sign" aria-hidden="true">+</span></button></h3>
+            <p class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>Yes, when everything in your basket comes from one roastery that offers collection. Choose collection in the basket and pick it up from the roastery counter. Baskets that mix roasteries are sent by local delivery.</p>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3"><span>Which grind should I pick?</span><span class="faq-sign" aria-hidden="true">+</span></button></h3>
+            <p class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>Open a coffee to choose a grind for how you brew: espresso, moka pot, filter or cafetière. If you own a grinder, whole bean will always taste better for longer.</p>
+          </div>
+          <div class="faq-item">
+            <h3><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4"><span>How do I check on my order?</span><span class="faq-sign" aria-hidden="true">+</span></button></h3>
+            <p class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>After you pay you land on your order page. Keep that link: it shows the current status of your order, and where to collect it or where it is being delivered.</p>
+          </div>
+      </div>
+    </section>
+
+    <section class="wrap sec rv" aria-labelledby="ml-title">
+      <div class="closing on-cobalt">
+        <div class="closing-main">
+          <h2 class="closing-title" id="ml-title">Hear when a new bag <em>lands on the shelf.</em></h2>
+          <form id="ml-form" class="ml-form" novalidate>
+            <div class="field">
+              <label for="ml-email">Join the mailing list: new roasters and new coffees, by email</label>
+              <div class="ml-box">
+                <input id="ml-email" name="email" type="email" class="ml-input" placeholder="you@example.com" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="none">
+                <button type="submit" class="btn btn--lime ml-btn" id="ml-submit">Join the list</button>
+              </div>
+              <p class="field-error" id="ml-email-error"></p>
+            </div>
+            <div class="check-wrap">
+              <label class="check" for="ml-consent"><input type="checkbox" id="ml-consent" name="consent"><span id="ml-consent-text">Loading the consent wording…</span></label>
+              <p class="field-error" id="ml-consent-error"></p>
+            </div>
+            <p class="ml-status" id="ml-status" role="status"></p>
+          </form>
+        </div>
+        <div class="cradle-wrap"><button type="button" class="cradle" id="cradle" aria-label="Knock the coffee cherries together"></button></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span class="foot-logo"><svg role="img" aria-label="One Shelf" viewBox="0 0 58 22" preserveAspectRatio="none"><ellipse vector-effect="non-scaling-stroke" cx="29" cy="11" rx="28" ry="10"></ellipse><path vector-effect="non-scaling-stroke" d="M41 6.2C32 1.5 19 5.5 29 11s-3 9.5-12 4.800"></path><path vector-effect="non-scaling-stroke" d="M17 6.2C26 1.5 39 5.5 29 11s3 9.5 12 4.800"></path><path vector-effect="non-scaling-stroke" d="M9 11h8M41 11h8"></path></svg></span>
+    <div class="foot-main">
+      <p>One Shelf is not affiliated with the roasters named on this site. Photographs are representative images, not pictures of the named roasteries. The swimming fish are frames from an AI-generated video clip.</p>
+      <nav aria-label="Footer">
+        <ul class="foot-links">
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+          <li><a href="/delivery-returns.html">Delivery and returns</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
