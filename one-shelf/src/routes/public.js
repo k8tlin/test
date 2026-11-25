@@ -40,7 +40,13 @@ const quoteBody = z.object({
   postcode: v.loosePostcode.optional().or(z.literal('').transform(() => undefined))
 })
 
-const checkoutBody = z.object({
+const addressSchema = z.object({
+  line1: v.singleLine(120, 'Address line 1'),
+  line2: v.text(120, 'Address line 2').regex(/^[^\r\n]*$/, 'Address line 2 must be a single line').optional(),
+  city: v.singleLine(60, 'Town or city'),
+  postcode: v.fullPostcode
+}, { error: 'Enter a delivery address' })
+const checkoutShape = {
   items: itemsSchema,
   fulfilment,
   customer: z.object({
@@ -48,19 +54,13 @@ const checkoutBody = z.object({
     email: v.email,
     phone: v.phone
   }, { error: 'Enter your details' }),
-  address: z.object({
-    line1: v.singleLine(120, 'Address line 1'),
-    line2: v.text(120, 'Address line 2').regex(/^[^\r\n]*$/, 'Address line 2 must be a single line').optional(),
-    city: v.singleLine(60, 'Town or city'),
-    postcode: v.fullPostcode
-  }, { error: 'Enter a delivery address' }).optional(),
   delivery_notes: v.text(500, 'Delivery notes').optional(),
   accept_terms: z.literal(true, { error: 'You need to accept the terms to place an order' })
-}).superRefine((body, ctx) => {
-  if (body.fulfilment === 'delivery' && !body.address) {
-    ctx.addIssue({ code: 'custom', path: ['address', 'line1'], message: 'Enter a delivery address' })
-  }
-})
+}
+// Two shapes so address errors are reported together with every other field.
+// Any price or total the client sends is not part of either shape and is dropped.
+const checkoutCollect = z.object(checkoutShape)
+const checkoutDelivery = z.object({ ...checkoutShape, address: addressSchema })
 
 const orderParams = z.object({ ref: z.string().trim().toUpperCase().regex(ORDER_REF_PATTERN) })
 const orderQuery = z.object({ token: z.string().regex(TOKEN_PATTERN) })
@@ -182,7 +182,8 @@ module.exports = async function publicRoutes (app, { repo, orders, config, payme
   })
 
   app.post('/api/checkout', { config: { rateLimit: rateLimits.checkout } }, async (request, reply) => {
-    const body = parse(checkoutBody, request.body)
+    const wantsDelivery = !!request.body && request.body.fulfilment === 'delivery'
+    const body = parse(wantsDelivery ? checkoutDelivery : checkoutCollect, request.body)
     const { order, accessToken } = orders.checkout(body)
     let payment
     try {
