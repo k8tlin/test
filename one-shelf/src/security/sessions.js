@@ -23,9 +23,38 @@ function cookieOptions (config) {
 module.exports = function sessions ({ config, repo }) {
   const name = config.sessionCookieName
 
+  // ---- preview deployments only -------------------------------------------
+  // With config.previewSessionKey set, the cookie is "<random>.<expiry>.<signature>"
+  // and the CSRF secret is derived from it, so a different copy of the server (with
+  // its own empty database) can verify the cookie and recreate the session row.
+  // Off everywhere else: a normal deployment has one database and does not need it.
+  const previewKey = config.previewSessionKey
+  const sign = (text) => crypto.createHmac('sha256', previewKey).update(text).digest('base64url')
+  const previewCsrf = (random) => sign(`csrf\n${random}`).slice(0, 32)
+
+  function restorePreviewSession (id) {
+    if (!previewKey) return false
+    const parts = id.split('.')
+    if (parts.length !== 3) return false
+    const [random, expiry, signature] = parts
+    const expected = Buffer.from(sign(`session\n${random}\n${expiry}`))
+    const given = Buffer.from(signature)
+    if (given.length !== expected.length || !crypto.timingSafeEqual(given, expected)) return false
+    if (!/^\d{13}$/.test(expiry) || Number(expiry) < Date.now()) return false
+    const admin = repo.admin.getAdminByEmail(config.previewAdminEmail)
+    if (!admin || admin.disabled) return false
+    repo.admin.insertSession(sha256(id), admin.id, previewCsrf(random))
+    return true
+  }
+
   function create (reply, adminId) {
-    const id = randomToken()
-    const csrfSecret = crypto.randomBytes(24).toString('base64url')
+    let id = randomToken()
+    let csrfSecret = crypto.randomBytes(24).toString('base64url')
+    if (previewKey) {
+      const expiry = String(Date.now() + config.sessionAbsoluteMs)
+      csrfSecret = previewCsrf(id)
+      id = `${id}.${expiry}.${sign(`session\n${id}\n${expiry}`)}`
+    }
     repo.admin.insertSession(sha256(id), adminId, csrfSecret)
     reply.setCookie(name, id, cookieOptions(config))
     return { idHash: sha256(id), csrfSecret }
@@ -42,7 +71,8 @@ module.exports = function sessions ({ config, repo }) {
     const id = request.cookies[name]
     if (typeof id !== 'string' || id.length < 20 || id.length > 128) return null
     const idHash = sha256(id)
-    const row = repo.admin.getSession(idHash)
+    let row = repo.admin.getSession(idHash)
+    if (!row && restorePreviewSession(id)) row = repo.admin.getSession(idHash)
     if (!row) return null
     const now = Date.now()
     const idleExpired = now - Date.parse(row.last_seen_at) > config.sessionIdleMs

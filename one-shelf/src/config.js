@@ -29,6 +29,8 @@ const envSchema = z.object({
   TRUST_PROXY: yesNo.optional(),
   ALLOW_MISSING_ORIGIN: yesNo.optional(),
   ALLOW_SAME_HOST_ORIGIN: yesNo.optional(),
+  PREVIEW_SESSION_KEY: z.string().min(32).max(200).optional(),
+  PREVIEW_ADMIN_EMAIL: z.string().email().max(254).optional(),
   LOG_LEVEL: z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal', 'silent']).optional(),
   RATE_LIMIT_GLOBAL_MAX: posInt(300),
   RATE_LIMIT_LOGIN_MAX: posInt(5),
@@ -103,6 +105,9 @@ function loadConfig (env = process.env, overrides = {}) {
     allowMissingOrigin: e.ALLOW_MISSING_ORIGIN === undefined ? !isProduction : e.ALLOW_MISSING_ORIGIN,
     // Also accept an Origin equal to the Host the request was sent to (hosts that serve one deployment under several names).
     allowSameHostOrigin: e.ALLOW_SAME_HOST_ORIGIN === true,
+    // Preview deployments only (see src/preview.js): lets a sign-in be recognised by another short-lived copy of the server.
+    previewSessionKey: e.PREVIEW_SESSION_KEY && e.PREVIEW_ADMIN_EMAIL ? e.PREVIEW_SESSION_KEY : null,
+    previewAdminEmail: e.PREVIEW_ADMIN_EMAIL ? e.PREVIEW_ADMIN_EMAIL.toLowerCase() : null,
     logLevel: e.LOG_LEVEL || (isTest ? 'silent' : 'info'),
     sessionCookieName: isProduction ? '__Host-os_session' : 'os_session',
     sessionIdleMs: 30 * 60 * 1000,

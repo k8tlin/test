@@ -22,6 +22,15 @@ function applyVercelEnv (env = process.env) {
   if (!env.ALLOW_SAME_HOST_ORIGIN) env.ALLOW_SAME_HOST_ORIGIN = 'yes'
   // A preview can only run demo payments. Real payments need PAYMENT_PROVIDER=stripe.
   if ((env.PAYMENT_PROVIDER || 'demo') === 'demo' && !env.ALLOW_DEMO_IN_PRODUCTION) env.ALLOW_DEMO_IN_PRODUCTION = 'yes'
+  // Vercel runs several short-lived copies, each with its own temporary database, so a
+  // sign-in stored in one is unknown to the next. In a preview only, sign the session
+  // cookie with a key derived from the admin password so any copy can recognise it.
+  const email = (env.ADMIN_EMAIL || '').trim().toLowerCase()
+  if (email && env.ADMIN_PASSWORD && !env.PREVIEW_SESSION_KEY) {
+    const crypto = require('node:crypto')
+    env.PREVIEW_SESSION_KEY = crypto.createHash('sha256').update(`one-shelf-preview-session\n${email}\n${env.ADMIN_PASSWORD}`).digest('hex')
+    env.PREVIEW_ADMIN_EMAIL = email
+  }
 }
 
 // Load the placeholder catalogue and, if ADMIN_EMAIL and ADMIN_PASSWORD are set, create that admin.
