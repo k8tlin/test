@@ -1,0 +1,31 @@
+{
+  "name": "one-shelf",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One Shelf: a London marketplace for independent coffee roasters (API server)",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/server.js",
+    "seed": "node --disable-warning=ExperimentalWarning scripts/seed.js",
+    "create-admin": "node --disable-warning=ExperimentalWarning scripts/create-admin.js",
+    "test": "NODE_ENV=test node --disable-warning=ExperimentalWarning --test test/"
+  },
+  "dependencies": {
+    "@fastify/cookie": "11.1.5",
+    "@fastify/csrf-protection": "8.0.2",
+    "@fastify/formbody": "9.0.2",
+    "@fastify/helmet": "13.2.0",
+    "@fastify/multipart": "10.1.9",
+    "@fastify/rate-limit": "11.3.0",
+    "@fastify/static": "10.1.12",
+    "fastify": "5.12.8",
+    "sharp": "0.35.5",
+    "zod": "4.6.7"
+  }
+}

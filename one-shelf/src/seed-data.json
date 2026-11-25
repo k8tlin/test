@@ -1,0 +1,1326 @@
+{
+ "_note": "Illustrative placeholder catalogue extracted from the design reference. Prices, stock and coffees are not real offers.",
+ "roasters": [
+  {
+   "ref": "sq",
+   "slug": "square-mile",
+   "name": "Square Mile",
+   "area": "Walthamstow",
+   "postcode": "E17",
+   "region": "East",
+   "lat": 51.59,
+   "lon": -0.04,
+   "description": "Competition-minded roasting: clean, sweet and precise.",
+   "bag_color": "#F4F1EA",
+   "label_color": "#F4F1EA",
+   "label_ink": "#2A3BE8",
+   "collection_enabled": true,
+   "collection_hours": "Mon to Fri 9am to 4pm"
+  },
+  {
+   "ref": "cs",
+   "slug": "campbell-and-syme",
+   "name": "Campbell & Syme",
+   "area": "East Finchley",
+   "postcode": "N2",
+   "region": "North",
+   "lat": 51.588,
+   "lon": -0.165,
+   "description": "A neighbourhood roastery with a light, Nordic-leaning hand.",
+   "bag_color": "#C9A982",
+   "label_color": "#C9A982",
+   "label_ink": "#2E1A0C",
+   "collection_enabled": true,
+   "collection_hours": "Tue to Sat 10am to 5pm"
+  },
+  {
+   "ref": "ca",
+   "slug": "caravan",
+   "name": "Caravan",
+   "area": "King's Cross",
+   "postcode": "N1C",
+   "region": "North",
+   "lat": 51.535,
+   "lon": -0.125,
+   "description": "Restaurant-roastery with approachable blends and seasonal lots.",
+   "bag_color": "#455D3D",
+   "label_color": "#F4F1EA",
+   "label_ink": "#455D3D",
+   "collection_enabled": true,
+   "collection_hours": "Mon to Sat 8am to 4pm"
+  },
+  {
+   "ref": "da",
+   "slug": "dark-arts",
+   "name": "Dark Arts",
+   "area": "Homerton",
+   "postcode": "E9",
+   "region": "East",
+   "lat": 51.548,
+   "lon": -0.042,
+   "description": "Irreverent labels wrapped around seriously sourced coffee.",
+   "bag_color": "#1E1B1A",
+   "label_color": "#1E1B1A",
+   "label_ink": "#F4F1EA",
+   "collection_enabled": true,
+   "collection_hours": "Wed to Sun 10am to 4pm"
+  },
+  {
+   "ref": "cl",
+   "slug": "climpson-and-sons",
+   "name": "Climpson & Sons",
+   "area": "Hackney",
+   "postcode": "E8",
+   "region": "East",
+   "lat": 51.537,
+   "lon": -0.061,
+   "description": "Broadway Market roots and bright, fruit-forward espresso.",
+   "bag_color": "#F4F1EA",
+   "label_color": "#F4F1EA",
+   "label_ink": "#C4361F",
+   "collection_enabled": true,
+   "collection_hours": "Mon to Fri 9am to 4pm"
+  },
+  {
+   "ref": "nu",
+   "slug": "nude",
+   "name": "Nude",
+   "area": "Spitalfields",
+   "postcode": "E1",
+   "region": "East",
+   "lat": 51.521,
+   "lon": -0.072,
+   "description": "An East End roastery with a rounded house style.",
+   "bag_color": "#C4361F",
+   "label_color": "#F4F1EA",
+   "label_ink": "#C4361F",
+   "collection_enabled": true,
+   "collection_hours": "Tue to Sat 10am to 5pm"
+  },
+  {
+   "ref": "mo",
+   "slug": "monmouth",
+   "name": "Monmouth",
+   "area": "Bermondsey",
+   "postcode": "SE16",
+   "region": "South",
+   "lat": 51.497,
+   "lon": -0.064,
+   "description": "A London original since 1978: single farms, fuller roasts.",
+   "bag_color": "#B8926A",
+   "label_color": "#F4F1EA",
+   "label_ink": "#2E1A0C",
+   "collection_enabled": true,
+   "collection_hours": "Mon to Sat 8am to 4pm"
+  },
+  {
+   "ref": "os",
+   "slug": "old-spike",
+   "name": "Old Spike",
+   "area": "Peckham",
+   "postcode": "SE15",
+   "region": "South",
+   "lat": 51.47,
+   "lon": -0.068,
+   "description": "A social enterprise training people who have experienced homelessness.",
+   "bag_color": "#F4F1EA",
+   "label_color": "#2A3BE8",
+   "label_ink": "#F4F1EA",
+   "collection_enabled": true,
+   "collection_hours": "Wed to Sun 10am to 4pm"
+  },
+  {
+   "ref": "as",
+   "slug": "assembly",
+   "name": "Assembly",
+   "area": "Brixton",
+   "postcode": "SW9",
+   "region": "South",
+   "lat": 51.462,
+   "lon": -0.114,
+   "description": "Small lots and lighter roasts, developed alongside baristas.",
+   "bag_color": "#B9D3E3",
+   "label_color": "#B9D3E3",
+   "label_ink": "#2E1A0C",
+   "collection_enabled": true,
+   "collection_hours": "Mon to Fri 9am to 4pm"
+  },
+  {
+   "ref": "vo",
+   "slug": "volcano-coffee-works",
+   "name": "Volcano Coffee Works",
+   "area": "West Norwood",
+   "postcode": "SE27",
+   "region": "South",
+   "lat": 51.432,
+   "lon": -0.103,
+   "description": "Rich, rounded espresso roasts from south London.",
+   "bag_color": "#3C2007",
+   "label_color": "#F4F1EA",
+   "label_ink": "#3C2007",
+   "collection_enabled": true,
+   "collection_hours": "Tue to Sat 10am to 5pm"
+  },
+  {
+   "ref": "al",
+   "slug": "alchemy",
+   "name": "Alchemy",
+   "area": "Wimbledon",
+   "postcode": "SW19",
+   "region": "West",
+   "lat": 51.421,
+   "lon": -0.2,
+   "description": "A measured, scientific approach to light and transparent roasts.",
+   "bag_color": "#E9E2D2",
+   "label_color": "#E9E2D2",
+   "label_ink": "#455D3D",
+   "collection_enabled": true,
+   "collection_hours": "Mon to Sat 8am to 4pm"
+  },
+  {
+   "ref": "ki",
+   "slug": "kiss-the-hippo",
+   "name": "Kiss the Hippo",
+   "area": "Richmond",
+   "postcode": "TW9",
+   "region": "West",
+   "lat": 51.462,
+   "lon": -0.303,
+   "description": "Carbon-conscious roasting from the south-west of the city.",
+   "bag_color": "#2A3BE8",
+   "label_color": "#2A3BE8",
+   "label_ink": "#F4F1EA",
+   "collection_enabled": true,
+   "collection_hours": "Wed to Sun 10am to 4pm"
+  }
+ ],
+ "products": [
+  {
+   "ref": "b01",
+   "roaster_ref": "sq",
+   "slug": "yirgacheffe-washed",
+   "name": "Yirgacheffe Washed",
+   "origin_country": "Ethiopia",
+   "origin_region": "Gedeo",
+   "process": "Washed",
+   "varietal": "Heirloom",
+   "altitude_m": 2050,
+   "roast_level": 1,
+   "brew": "filter",
+   "notes": [
+    "Bergamot",
+    "Peach",
+    "Jasmine"
+   ],
+   "flavour": {
+    "acidity": 9,
+    "sweetness": 7,
+    "body": 3,
+    "fruit": 7,
+    "floral": 9,
+    "roast": 2
+   },
+   "weight_g": 250,
+   "price_pence": 1350,
+   "stock": 17,
+   "tint": "#E3A93C"
+  },
+  {
+   "ref": "b02",
+   "roaster_ref": "sq",
+   "slug": "huila-espresso",
+   "name": "Huila Espresso",
+   "origin_country": "Colombia",
+   "origin_region": "Huila",
+   "process": "Washed",
+   "varietal": "Caturra",
+   "altitude_m": 1750,
+   "roast_level": 3,
+   "brew": "espresso",
+   "notes": [
+    "Red apple",
+    "Caramel",
+    "Milk chocolate"
+   ],
+   "flavour": {
+    "acidity": 6,
+    "sweetness": 8,
+    "body": 6,
+    "fruit": 5,
+    "floral": 2,
+    "roast": 5
+   },
+   "weight_g": 250,
+   "price_pence": 1150,
+   "stock": 28,
+   "tint": "#E38B62"
+  },
+  {
+   "ref": "b03",
+   "roaster_ref": "mo",
+   "slug": "antigua-bourbon",
+   "name": "Antigua Bourbon",
+   "origin_country": "Guatemala",
+   "origin_region": "Antigua",
+   "process": "Washed",
+   "varietal": "Bourbon",
+   "altitude_m": 1600,
+   "roast_level": 4,
+   "brew": "espresso",
+   "notes": [
+    "Dark chocolate",
+    "Hazelnut",
+    "Orange zest"
+   ],
+   "flavour": {
+    "acidity": 4,
+    "sweetness": 7,
+    "body": 8,
+    "fruit": 3,
+    "floral": 1,
+    "roast": 7
+   },
+   "weight_g": 250,
+   "price_pence": 1050,
+   "stock": 39,
+   "tint": "#9A765F"
+  },
+  {
+   "ref": "b04",
+   "roaster_ref": "mo",
+   "slug": "sul-de-minas-natural",
+   "name": "Sul de Minas Natural",
+   "origin_country": "Brazil",
+   "origin_region": "Sul de Minas",
+   "process": "Natural",
+   "varietal": "Yellow Bourbon",
+   "altitude_m": 1100,
+   "roast_level": 4,
+   "brew": "both",
+   "notes": [
+    "Praline",
+    "Cocoa",
+    "Dried fig"
+   ],
+   "flavour": {
+    "acidity": 3,
+    "sweetness": 8,
+    "body": 9,
+    "fruit": 4,
+    "floral": 1,
+    "roast": 7
+   },
+   "weight_g": 250,
+   "price_pence": 950,
+   "stock": 21,
+   "tint": "#9A765F"
+  },
+  {
+   "ref": "b05",
+   "roaster_ref": "cl",
+   "slug": "guji-natural",
+   "name": "Guji Natural",
+   "origin_country": "Ethiopia",
+   "origin_region": "Guji",
+   "process": "Natural",
+   "varietal": "Heirloom",
+   "altitude_m": 2100,
+   "roast_level": 2,
+   "brew": "both",
+   "notes": [
+    "Blueberry",
+    "Cocoa nib",
+    "Violet"
+   ],
+   "flavour": {
+    "acidity": 7,
+    "sweetness": 8,
+    "body": 5,
+    "fruit": 9,
+    "floral": 6,
+    "roast": 3
+   },
+   "weight_g": 250,
+   "price_pence": 1250,
+   "stock": 32,
+   "tint": "#B0668D"
+  },
+  {
+   "ref": "b06",
+   "roaster_ref": "cl",
+   "slug": "cauca-washed",
+   "name": "Cauca Washed",
+   "origin_country": "Colombia",
+   "origin_region": "Cauca",
+   "process": "Washed",
+   "varietal": "Castillo",
+   "altitude_m": 1800,
+   "roast_level": 3,
+   "brew": "espresso",
+   "notes": [
+    "Plum",
+    "Toffee",
+    "Almond"
+   ],
+   "flavour": {
+    "acidity": 6,
+    "sweetness": 8,
+    "body": 6,
+    "fruit": 6,
+    "floral": 2,
+    "roast": 5
+   },
+   "weight_g": 250,
+   "price_pence": 1050,
+   "stock": 14,
+   "tint": "#D9584B"
+  },
+  {
+   "ref": "b07",
+   "roaster_ref": "ca",
+   "slug": "nyeri-aa",
+   "name": "Nyeri AA",
+   "origin_country": "Kenya",
+   "origin_region": "Nyeri",
+   "process": "Washed",
+   "varietal": "SL28",
+   "altitude_m": 1800,
+   "roast_level": 2,
+   "brew": "filter",
+   "notes": [
+    "Blackcurrant",
+    "Grapefruit",
+    "Brown sugar"
+   ],
+   "flavour": {
+    "acidity": 9,
+    "sweetness": 7,
+    "body": 5,
+    "fruit": 9,
+    "floral": 4,
+    "roast": 3
+   },
+   "weight_g": 250,
+   "price_pence": 1300,
+   "stock": 25,
+   "tint": "#D9584B"
+  },
+  {
+   "ref": "b08",
+   "roaster_ref": "ca",
+   "slug": "cerrado-pulped-natural",
+   "name": "Cerrado Pulped Natural",
+   "origin_country": "Brazil",
+   "origin_region": "Cerrado Mineiro",
+   "process": "Pulped natural",
+   "varietal": "Catuaí",
+   "altitude_m": 1050,
+   "roast_level": 3,
+   "brew": "espresso",
+   "notes": [
+    "Peanut brittle",
+    "Milk chocolate",
+    "Raisin"
+   ],
+   "flavour": {
+    "acidity": 3,
+    "sweetness": 8,
+    "body": 8,
+    "fruit": 3,
+    "floral": 1,
+    "roast": 6
+   },
+   "weight_g": 250,
+   "price_pence": 950,
+   "stock": 36,
+   "tint": "#9A765F"
+  },
+  {
+   "ref": "b09",
+   "roaster_ref": "as",
+   "slug": "sidama-honey",
+   "name": "Sidama Honey",
+   "origin_country": "Ethiopia",
+   "origin_region": "Sidama",
+   "process": "Honey",
+   "varietal": "Heirloom",
+   "altitude_m": 1950,
+   "roast_level": 1,
+   "brew": "filter",
+   "notes": [
+    "Apricot",
+    "Honey",
+    "Black tea"
+   ],
+   "flavour": {
+    "acidity": 8,
+    "sweetness": 9,
+    "body": 4,
+    "fruit": 7,
+    "floral": 7,
+    "roast": 2
+   },
+   "weight_g": 250,
+   "price_pence": 1300,
+   "stock": 18,
+   "tint": "#E38B62"
+  },
+  {
+   "ref": "b10",
+   "roaster_ref": "as",
+   "slug": "tarrazu-washed",
+   "name": "Tarrazú Washed",
+   "origin_country": "Costa Rica",
+   "origin_region": "Tarrazú",
+   "process": "Washed",
+   "varietal": "Catuaí",
+   "altitude_m": 1700,
+   "roast_level": 2,
+   "brew": "both",
+   "notes": [
+    "Mandarin",
+    "Nougat",
+    "Cane sugar"
+   ],
+   "flavour": {
+    "acidity": 7,
+    "sweetness": 9,
+    "body": 5,
+    "fruit": 6,
+    "floral": 3,
+    "roast": 3
+   },
+   "weight_g": 250,
+   "price_pence": 1200,
+   "stock": 29,
+   "tint": "#E3A93C"
+  },
+  {
+   "ref": "b11",
+   "roaster_ref": "da",
+   "slug": "huehuetenango-washed",
+   "name": "Huehuetenango Washed",
+   "origin_country": "Guatemala",
+   "origin_region": "Huehuetenango",
+   "process": "Washed",
+   "varietal": "Caturra",
+   "altitude_m": 1850,
+   "roast_level": 3,
+   "brew": "espresso",
+   "notes": [
+    "Cherry cola",
+    "Cocoa",
+    "Molasses"
+   ],
+   "flavour": {
+    "acidity": 6,
+    "sweetness": 8,
+    "body": 7,
+    "fruit": 6,
+    "floral": 2,
+    "roast": 5
+   },
+   "weight_g": 250,
+   "price_pence": 1100,
+   "stock": 40,
+   "tint": "#D9584B"
+  },
+  {
+   "ref": "b12",
+   "roaster_ref": "da",
+   "slug": "narino-anaerobic",
+   "name": "Nariño Anaerobic",
+   "origin_country": "Colombia",
+   "origin_region": "Nariño",
+   "process": "Anaerobic natural",
+   "varietal": "Pink Bourbon",
+   "altitude_m": 1950,
+   "roast_level": 2,
+   "brew": "filter",
+   "notes": [
+    "Strawberry",
+    "Rose",
+    "Lychee"
+   ],
+   "flavour": {
+    "acidity": 8,
+    "sweetness": 9,
+    "body": 4,
+    "fruit": 10,
+    "floral": 8,
+    "roast": 2
+   },
+   "weight_g": 250,
+   "price_pence": 1550,
+   "stock": 22,
+   "tint": "#B0668D"
+  },
+  {
+   "ref": "b13",
+   "roaster_ref": "nu",
+   "slug": "santa-ana-honey",
+   "name": "Santa Ana Honey",
+   "origin_country": "El Salvador",
+   "origin_region": "Santa Ana",
+   "process": "Honey",
+   "varietal": "Pacamara",
+   "altitude_m": 1500,
+   "roast_level": 3,
+   "brew": "espresso",
+   "notes": [
+    "Stewed plum",
+    "Caramel",
+    "Walnut"
+   ],
+   "flavour": {
+    "acidity": 5,
+    "sweetness": 8,
+    "body": 7,
+    "fruit": 5,
+    "floral": 2,
+    "roast": 5
+   },
+   "weight_g": 250,
+   "price_pence": 1100,
+   "stock": 33,
+   "tint": "#E38B62"
+  },
+  {
+   "ref": "b14",
+   "roaster_ref": "nu",
+   "slug": "kayanza-washed",
+   "name": "Kayanza Washed",
+   "origin_country": "Burundi",
+   "origin_region": "Kayanza",
+   "process": "Washed",
+   "varietal": "Red Bourbon",
+   "altitude_m": 1800,
+   "roast_level": 2,
+   "brew": "filter",
+   "notes": [
+    "Redcurrant",
+    "Hibiscus",
+    "Demerara"
+   ],
+   "flavour": {
+    "acidity": 8,
+    "sweetness": 7,
+    "body": 5,
+    "fruit": 8,
+    "floral": 6,
+    "roast": 3
+   },
+   "weight_g": 250,
+   "price_pence": 1200,
+   "stock": 15,
+   "tint": "#D9584B"
+  },
+  {
+   "ref": "b15",
+   "roaster_ref": "ki",
+   "slug": "cajamarca-washed",
+   "name": "Cajamarca Washed",
+   "origin_country": "Peru",
+   "origin_region": "Cajamarca",
+   "process": "Washed",
+   "varietal": "Typica",
+   "altitude_m": 1800,
+   "roast_level": 2,
+   "brew": "both",
+   "notes": [
+    "Green apple",
+    "Vanilla",
+    "Almond"
+   ],
+   "flavour": {
+    "acidity": 7,
+    "sweetness": 8,
+    "body": 5,
+    "fruit": 5,
+    "floral": 3,
+    "roast": 3
+   },
+   "weight_g": 250,
+   "price_pence": 1150,
+   "stock": 26,
+   "tint": "#7F9A88"
+  },
+  {
+   "ref": "b16",
+   "roaster_ref": "ki",
+   "slug": "boquete-geisha",
+   "name": "Boquete Geisha",
+   "origin_country": "Panama",
+   "origin_region": "Boquete",
+   "process": "Washed",
+   "varietal": "Geisha",
+   "altitude_m": 1700,
+   "roast_level": 1,
+   "brew": "filter",
+   "notes": [
+    "Jasmine",
+    "Mango",
+    "Lime"
+   ],
+   "flavour": {
+    "acidity": 9,
+    "sweetness": 9,
+    "body": 3,
+    "fruit": 8,
+    "floral": 10,
+    "roast": 1
+   },
+   "weight_g": 250,
+   "price_pence": 2400,
+   "stock": 37,
+   "tint": "#E3A93C"
+  },
+  {
+   "ref": "b17",
+   "roaster_ref": "os",
+   "slug": "nyamasheke-washed",
+   "name": "Nyamasheke Washed",
+   "origin_country": "Rwanda",
+   "origin_region": "Nyamasheke",
+   "process": "Washed",
+   "varietal": "Red Bourbon",
+   "altitude_m": 1850,
+   "roast_level": 2,
+   "brew": "filter",
+   "notes": [
+    "Orange",
+    "Black tea",
+    "Honey"
+   ],
+   "flavour": {
+    "acidity": 7,
+    "sweetness": 8,
+    "body": 5,
+    "fruit": 6,
+    "floral": 5,
+    "roast": 3
+   },
+   "weight_g": 250,
+   "price_pence": 1100,
+   "stock": 19,
+   "tint": "#E3A93C"
+  },
+  {
+   "ref": "b18",
+   "roaster_ref": "os",
+   "slug": "marcala-washed",
+   "name": "Marcala Washed",
+   "origin_country": "Honduras",
+   "origin_region": "Marcala",
+   "process": "Washed",
+   "varietal": "Catuaí",
+   "altitude_m": 1500,
+   "roast_level": 4,
+   "brew": "espresso",
+   "notes": [
+    "Dark chocolate",
+    "Toasted pecan",
+    "Treacle"
+   ],
+   "flavour": {
+    "acidity": 4,
+    "sweetness": 7,
+    "body": 8,
+    "fruit": 3,
+    "floral": 1,
+    "roast": 7
+   },
+   "weight_g": 250,
+   "price_pence": 950,
+   "stock": 30,
+   "tint": "#9A765F"
+  },
+  {
+   "ref": "b19",
+   "roaster_ref": "vo",
+   "slug": "gayo-wet-hulled",
+   "name": "Gayo Wet-Hulled",
+   "origin_country": "Indonesia",
+   "origin_region": "Aceh, Sumatra",
+   "process": "Wet-hulled",
+   "varietal": "Tim Tim",
+   "altitude_m": 1400,
+   "roast_level": 5,
+   "brew": "espresso",
+   "notes": [
+    "Cedar",
+    "Dark cocoa",
+    "Liquorice"
+   ],
+   "flavour": {
+    "acidity": 2,
+    "sweetness": 6,
+    "body": 10,
+    "fruit": 2,
+    "floral": 1,
+    "roast": 9
+   },
+   "weight_g": 250,
+   "price_pence": 1000,
+   "stock": 12,
+   "tint": "#7F9A88"
+  },
+  {
+   "ref": "b20",
+   "roaster_ref": "vo",
+   "slug": "mogiana-natural",
+   "name": "Mogiana Natural",
+   "origin_country": "Brazil",
+   "origin_region": "Alta Mogiana",
+   "process": "Natural",
+   "varietal": "Mundo Novo",
+   "altitude_m": 1150,
+   "roast_level": 4,
+   "brew": "espresso",
+   "notes": [
+    "Hazelnut",
+    "Cocoa",
+    "Brown butter"
+   ],
+   "flavour": {
+    "acidity": 3,
+    "sweetness": 8,
+    "body": 9,
+    "fruit": 3,
+    "floral": 1,
+    "roast": 7
+   },
+   "weight_g": 250,
+   "price_pence": 950,
+   "stock": 23,
+   "tint": "#9A765F"
+  },
+  {
+   "ref": "b21",
+   "roaster_ref": "al",
+   "slug": "kirinyaga-ab",
+   "name": "Kirinyaga AB",
+   "origin_country": "Kenya",
+   "origin_region": "Kirinyaga",
+   "process": "Washed",
+   "varietal": "SL34",
+   "altitude_m": 1750,
+   "roast_level": 1,
+   "brew": "filter",
+   "notes": [
+    "Rhubarb",
+    "Blackberry",
+    "Lemon"
+   ],
+   "flavour": {
+    "acidity": 10,
+    "sweetness": 7,
+    "body": 4,
+    "fruit": 9,
+    "floral": 5,
+    "roast": 2
+   },
+   "weight_g": 250,
+   "price_pence": 1350,
+   "stock": 34,
+   "tint": "#B0668D"
+  },
+  {
+   "ref": "b22",
+   "roaster_ref": "al",
+   "slug": "chiapas-washed",
+   "name": "Chiapas Washed",
+   "origin_country": "Mexico",
+   "origin_region": "Chiapas",
+   "process": "Washed",
+   "varietal": "Bourbon",
+   "altitude_m": 1500,
+   "roast_level": 3,
+   "brew": "both",
+   "notes": [
+    "Milk chocolate",
+    "Pear",
+    "Maple"
+   ],
+   "flavour": {
+    "acidity": 5,
+    "sweetness": 8,
+    "body": 6,
+    "fruit": 5,
+    "floral": 2,
+    "roast": 5
+   },
+   "weight_g": 250,
+   "price_pence": 1050,
+   "stock": 16,
+   "tint": "#E38B62"
+  },
+  {
+   "ref": "b23",
+   "roaster_ref": "cs",
+   "slug": "nueva-segovia-natural",
+   "name": "Nueva Segovia Natural",
+   "origin_country": "Nicaragua",
+   "origin_region": "Nueva Segovia",
+   "process": "Natural",
+   "varietal": "Maragogype",
+   "altitude_m": 1450,
+   "roast_level": 2,
+   "brew": "filter",
+   "notes": [
+    "Papaya",
+    "Cacao",
+    "Sweet lime"
+   ],
+   "flavour": {
+    "acidity": 7,
+    "sweetness": 8,
+    "body": 5,
+    "fruit": 8,
+    "floral": 4,
+    "roast": 3
+   },
+   "weight_g": 250,
+   "price_pence": 1250,
+   "stock": 27,
+   "tint": "#E3A93C"
+  },
+  {
+   "ref": "b24",
+   "roaster_ref": "cs",
+   "slug": "caranavi-washed",
+   "name": "Caranavi Washed",
+   "origin_country": "Bolivia",
+   "origin_region": "Caranavi",
+   "process": "Washed",
+   "varietal": "Caturra",
+   "altitude_m": 1650,
+   "roast_level": 3,
+   "brew": "both",
+   "notes": [
+    "Nectarine",
+    "Caramel",
+    "Cashew"
+   ],
+   "flavour": {
+    "acidity": 6,
+    "sweetness": 9,
+    "body": 6,
+    "fruit": 6,
+    "floral": 3,
+    "roast": 4
+   },
+   "weight_g": 250,
+   "price_pence": 1250,
+   "stock": 38,
+   "tint": "#E38B62"
+  }
+ ],
+ "areas": {
+  "E": {
+   "lat": 51.545,
+   "lon": -0.035,
+   "label": "east London"
+  },
+  "EC": {
+   "lat": 51.52,
+   "lon": -0.095,
+   "label": "the City"
+  },
+  "N": {
+   "lat": 51.575,
+   "lon": -0.115,
+   "label": "north London"
+  },
+  "NW": {
+   "lat": 51.55,
+   "lon": -0.185,
+   "label": "north-west London"
+  },
+  "SE": {
+   "lat": 51.465,
+   "lon": -0.05,
+   "label": "south-east London"
+  },
+  "SW": {
+   "lat": 51.465,
+   "lon": -0.165,
+   "label": "south-west London"
+  },
+  "W": {
+   "lat": 51.512,
+   "lon": -0.215,
+   "label": "west London"
+  },
+  "WC": {
+   "lat": 51.517,
+   "lon": -0.122,
+   "label": "the West End"
+  },
+  "TW": {
+   "lat": 51.45,
+   "lon": -0.33,
+   "label": "Twickenham and Richmond"
+  }
+ },
+ "districts": {
+  "E1": {
+   "lat": 51.517,
+   "lon": -0.058
+  },
+  "E1W": {
+   "lat": 51.507,
+   "lon": -0.06
+  },
+  "E2": {
+   "lat": 51.529,
+   "lon": -0.06
+  },
+  "E3": {
+   "lat": 51.528,
+   "lon": -0.025
+  },
+  "E5": {
+   "lat": 51.559,
+   "lon": -0.053
+  },
+  "E8": {
+   "lat": 51.543,
+   "lon": -0.063
+  },
+  "E9": {
+   "lat": 51.544,
+   "lon": -0.042
+  },
+  "E10": {
+   "lat": 51.568,
+   "lon": -0.012
+  },
+  "E11": {
+   "lat": 51.568,
+   "lon": 0.012
+  },
+  "E14": {
+   "lat": 51.507,
+   "lon": -0.02
+  },
+  "E15": {
+   "lat": 51.54,
+   "lon": 0.003
+  },
+  "E17": {
+   "lat": 51.586,
+   "lon": -0.02
+  },
+  "E20": {
+   "lat": 51.545,
+   "lon": -0.012
+  },
+  "EC1": {
+   "lat": 51.524,
+   "lon": -0.103
+  },
+  "EC2": {
+   "lat": 51.519,
+   "lon": -0.087
+  },
+  "EC3": {
+   "lat": 51.512,
+   "lon": -0.082
+  },
+  "EC4": {
+   "lat": 51.513,
+   "lon": -0.1
+  },
+  "N1": {
+   "lat": 51.538,
+   "lon": -0.098
+  },
+  "N1C": {
+   "lat": 51.536,
+   "lon": -0.125
+  },
+  "N2": {
+   "lat": 51.589,
+   "lon": -0.169
+  },
+  "N4": {
+   "lat": 51.57,
+   "lon": -0.104
+  },
+  "N5": {
+   "lat": 51.553,
+   "lon": -0.098
+  },
+  "N6": {
+   "lat": 51.571,
+   "lon": -0.146
+  },
+  "N7": {
+   "lat": 51.553,
+   "lon": -0.118
+  },
+  "N8": {
+   "lat": 51.584,
+   "lon": -0.12
+  },
+  "N15": {
+   "lat": 51.582,
+   "lon": -0.081
+  },
+  "N16": {
+   "lat": 51.563,
+   "lon": -0.075
+  },
+  "N17": {
+   "lat": 51.598,
+   "lon": -0.07
+  },
+  "N19": {
+   "lat": 51.565,
+   "lon": -0.13
+  },
+  "N22": {
+   "lat": 51.598,
+   "lon": -0.11
+  },
+  "NW1": {
+   "lat": 51.534,
+   "lon": -0.145
+  },
+  "NW3": {
+   "lat": 51.552,
+   "lon": -0.172
+  },
+  "NW5": {
+   "lat": 51.553,
+   "lon": -0.143
+  },
+  "NW6": {
+   "lat": 51.541,
+   "lon": -0.197
+  },
+  "NW8": {
+   "lat": 51.531,
+   "lon": -0.172
+  },
+  "NW10": {
+   "lat": 51.54,
+   "lon": -0.247
+  },
+  "SE1": {
+   "lat": 51.501,
+   "lon": -0.093
+  },
+  "SE5": {
+   "lat": 51.474,
+   "lon": -0.091
+  },
+  "SE8": {
+   "lat": 51.479,
+   "lon": -0.029
+  },
+  "SE10": {
+   "lat": 51.482,
+   "lon": -0.001
+  },
+  "SE11": {
+   "lat": 51.489,
+   "lon": -0.11
+  },
+  "SE13": {
+   "lat": 51.458,
+   "lon": -0.01
+  },
+  "SE14": {
+   "lat": 51.476,
+   "lon": -0.041
+  },
+  "SE15": {
+   "lat": 51.471,
+   "lon": -0.066
+  },
+  "SE16": {
+   "lat": 51.497,
+   "lon": -0.052
+  },
+  "SE17": {
+   "lat": 51.488,
+   "lon": -0.093
+  },
+  "SE22": {
+   "lat": 51.453,
+   "lon": -0.07
+  },
+  "SE23": {
+   "lat": 51.441,
+   "lon": -0.05
+  },
+  "SE24": {
+   "lat": 51.452,
+   "lon": -0.098
+  },
+  "SE27": {
+   "lat": 51.431,
+   "lon": -0.102
+  },
+  "SW1": {
+   "lat": 51.497,
+   "lon": -0.137
+  },
+  "SW2": {
+   "lat": 51.449,
+   "lon": -0.12
+  },
+  "SW3": {
+   "lat": 51.489,
+   "lon": -0.166
+  },
+  "SW4": {
+   "lat": 51.461,
+   "lon": -0.139
+  },
+  "SW6": {
+   "lat": 51.476,
+   "lon": -0.2
+  },
+  "SW7": {
+   "lat": 51.495,
+   "lon": -0.176
+  },
+  "SW8": {
+   "lat": 51.477,
+   "lon": -0.131
+  },
+  "SW9": {
+   "lat": 51.469,
+   "lon": -0.113
+  },
+  "SW11": {
+   "lat": 51.465,
+   "lon": -0.165
+  },
+  "SW12": {
+   "lat": 51.444,
+   "lon": -0.148
+  },
+  "SW15": {
+   "lat": 51.458,
+   "lon": -0.224
+  },
+  "SW16": {
+   "lat": 51.421,
+   "lon": -0.128
+  },
+  "SW17": {
+   "lat": 51.431,
+   "lon": -0.166
+  },
+  "SW18": {
+   "lat": 51.452,
+   "lon": -0.191
+  },
+  "SW19": {
+   "lat": 51.424,
+   "lon": -0.202
+  },
+  "W1": {
+   "lat": 51.515,
+   "lon": -0.143
+  },
+  "W2": {
+   "lat": 51.515,
+   "lon": -0.179
+  },
+  "W4": {
+   "lat": 51.49,
+   "lon": -0.262
+  },
+  "W6": {
+   "lat": 51.493,
+   "lon": -0.228
+  },
+  "W8": {
+   "lat": 51.501,
+   "lon": -0.193
+  },
+  "W9": {
+   "lat": 51.527,
+   "lon": -0.19
+  },
+  "W10": {
+   "lat": 51.522,
+   "lon": -0.213
+  },
+  "W11": {
+   "lat": 51.513,
+   "lon": -0.205
+  },
+  "W12": {
+   "lat": 51.508,
+   "lon": -0.232
+  },
+  "W14": {
+   "lat": 51.495,
+   "lon": -0.21
+  },
+  "WC1": {
+   "lat": 51.522,
+   "lon": -0.121
+  },
+  "WC2": {
+   "lat": 51.512,
+   "lon": -0.122
+  },
+  "TW1": {
+   "lat": 51.449,
+   "lon": -0.326
+  },
+  "TW9": {
+   "lat": 51.465,
+   "lon": -0.29
+  },
+  "TW10": {
+   "lat": 51.449,
+   "lon": -0.3
+  }
+ },
+ "delivery_zones": [
+  {
+   "postcode_prefix": "E",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "EC",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "N",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "NW",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "SE",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "SW",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "W",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "WC",
+   "fee_pence": 350
+  },
+  {
+   "postcode_prefix": "TW",
+   "fee_pence": 350
+  }
+ ]
+}
