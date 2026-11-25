@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "",
+  "buildCommand": "mkdir -p public/admin && cp -R admin/. public/admin/",
   "installCommand": "npm ci",
   "outputDirectory": "public",
   "functions": {

@@ -160,6 +160,7 @@ What to expect:
 - **Data resets.** Vercel has no permanent disk, so the database lives in temporary storage. It is re-seeded with the placeholder catalogue whenever Vercel starts a new instance, and orders, stock changes, uploads and admin sessions are lost when that instance stops. Different visitors may also land on different instances and see different data.
 - **Demo payments only.** The preview switches the demo payment page on by itself.
 - **Admin sign-in.** Set two environment variables in the Vercel project (Settings, Environment Variables), then redeploy: `ADMIN_EMAIL` and `ADMIN_PASSWORD` (at least 12 characters). The preview creates that admin each time it starts. Without them there is no admin account.
+- **Admin files.** Vercel rewrites JavaScript that is packaged with the server function, which breaks browser modules. The build step therefore copies `admin/` into `public/admin/` so Vercel serves those files untouched. That copy is generated at build time and is not in git.
 - **Node version.** The project needs Node 22 (Settings, General, Node.js Version).
 
 Do not take real orders on the Vercel preview. Use a host with a persistent disk for that, as described in "Before going live".
