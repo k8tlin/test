@@ -1,5 +1,8 @@
 // Entry point: session check, hash router, unsaved-changes guard, sign-out.
 import * as api from './api.js'
+
+// Tells boot-check.js that the app's code loaded and started.
+window.__oneShelfAdminStarted = true
 import { h, confirmDialog, clearMessages, announce, reportError, busy, errorState } from './ui.js'
 import { signInView } from './views/signin.js'
 import { dashboardView } from './views/dashboard.js'
