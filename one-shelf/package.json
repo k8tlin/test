@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "type": "commonjs",
   "engines": {
-    "node": ">=22.5.0"
+    "node": "22.x"
   },
   "main": "src/server.js",
   "scripts": {

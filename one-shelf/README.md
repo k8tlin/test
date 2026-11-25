@@ -150,3 +150,16 @@ Technical notes:
 - The database runs in WAL mode with foreign keys on. Money is stored as whole pence; times as ISO 8601 UTC text.
 - Distances are straight-line miles from the centre of a postcode district, so they are approximate.
 - "Today" in the admin summary is the UTC day.
+
+## Preview on Vercel (for looking at it, not for trading)
+
+The repository includes `vercel.json` and `api/index.js`, so importing it into Vercel gives a working preview.
+
+What to expect:
+
+- **Data resets.** Vercel has no permanent disk, so the database lives in temporary storage. It is re-seeded with the placeholder catalogue whenever Vercel starts a new instance, and orders, stock changes, uploads and admin sessions are lost when that instance stops. Different visitors may also land on different instances and see different data.
+- **Demo payments only.** The preview switches the demo payment page on by itself.
+- **Admin sign-in.** Set two environment variables in the Vercel project (Settings, Environment Variables), then redeploy: `ADMIN_EMAIL` and `ADMIN_PASSWORD` (at least 12 characters). The preview creates that admin each time it starts. Without them there is no admin account.
+- **Node version.** The project needs Node 22 (Settings, General, Node.js Version).
+
+Do not take real orders on the Vercel preview. Use a host with a persistent disk for that, as described in "Before going live".

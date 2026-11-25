@@ -28,6 +28,7 @@ const envSchema = z.object({
   STRIPE_WEBHOOK_SECRET: z.string().min(1).optional(),
   TRUST_PROXY: yesNo.optional(),
   ALLOW_MISSING_ORIGIN: yesNo.optional(),
+  ALLOW_SAME_HOST_ORIGIN: yesNo.optional(),
   LOG_LEVEL: z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal', 'silent']).optional(),
   RATE_LIMIT_GLOBAL_MAX: posInt(300),
   RATE_LIMIT_LOGIN_MAX: posInt(5),
@@ -100,6 +101,8 @@ function loadConfig (env = process.env, overrides = {}) {
     stripeWebhookSecret: e.STRIPE_WEBHOOK_SECRET || null,
     trustProxy: e.TRUST_PROXY === true,
     allowMissingOrigin: e.ALLOW_MISSING_ORIGIN === undefined ? !isProduction : e.ALLOW_MISSING_ORIGIN,
+    // Also accept an Origin equal to the Host the request was sent to (hosts that serve one deployment under several names).
+    allowSameHostOrigin: e.ALLOW_SAME_HOST_ORIGIN === true,
     logLevel: e.LOG_LEVEL || (isTest ? 'silent' : 'info'),
     sessionCookieName: isProduction ? '__Host-os_session' : 'os_session',
     sessionIdleMs: 30 * 60 * 1000,

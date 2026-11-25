@@ -34,7 +34,11 @@ module.exports = function originCheck (config) {
     const allowed = new Set([config.publicOrigin])
     // Outside production the site is usually opened as http://localhost:<port>
     // or http://127.0.0.1:<port>; accept the address the browser actually used.
-    if (!config.isProduction && request.headers.host) allowed.add(`${request.protocol}://${request.headers.host}`)
+    // The same applies where one deployment answers on several hostnames (ALLOW_SAME_HOST_ORIGIN).
+    // A browser cannot be made to send another site's Origin with this site's Host, so this is still a same-origin check.
+    // request.host honours X-Forwarded-Host only when TRUST_PROXY is on.
+    const host = request.host || request.headers.host
+    if ((!config.isProduction || config.allowSameHostOrigin) && host) allowed.add(`${request.protocol}://${host}`)
     if (origin && allowed.has(origin)) return done()
     request.log.warn({ origin: origin || 'unparseable' }, 'blocked cross-origin state-changing request')
     done(new AppError(403, 'origin_forbidden', 'This request did not come from the One Shelf site.'))
