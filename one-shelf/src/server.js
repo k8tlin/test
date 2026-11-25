@@ -40,6 +40,8 @@ const CSP_DIRECTIVES = {
  * @param {object} [opts.logStream]  writable stream for log lines (tests)
  */
 async function buildApp (opts = {}) {
+  // Must run before any plugin is required (see src/esm-compat.js).
+  await require('./esm-compat').preloadEsmDependencies()
   const config = loadConfig(opts.env || process.env, opts.config || {})
 
   fs.mkdirSync(config.dataDir, { recursive: true })
